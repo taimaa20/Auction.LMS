@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Auction.LMS.CORE.Repoisitory
+namespace Auction.LMS.CORE.Services
 {
-  public  interface ICreditCardRepository
+   public interface ICreditCardService
     {
         List<CreditCard> GetAllCreditCard();
         bool InsertCreditCard(CreditCard creditCard);
