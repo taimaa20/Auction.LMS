@@ -1,4 +1,5 @@
 ﻿using Auction.LMS.CORE.Data;
+using Auction.LMS.CORE.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,5 +15,6 @@ namespace Auction.LMS.CORE.Repoisitory
         public bool DeleteItem(int id);
         public Item GetItemById(int id);
         public List<Item> SearchByItemName(Item item);
+        public List<ItemDTO> OfferItemPrice(ItemDTO itemDTO);
     }
 }
