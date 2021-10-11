@@ -68,5 +68,16 @@ namespace Auction.LMS.INFRA.Repoisitory
             var result = dBContext.Connection.ExecuteAsync("UpdateItem", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public List<Item> SearchByItemName(Item item)
+        {
+
+        
+            var p = new DynamicParameters();
+            p.Add("@ItemName", item.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            IEnumerable<Item> result = dBContext.Connection.Query<Item>("SearchByItemName", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
     }
 }

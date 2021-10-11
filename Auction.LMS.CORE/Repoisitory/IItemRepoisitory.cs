@@ -13,5 +13,6 @@ namespace Auction.LMS.CORE.Repoisitory
         public bool UpdateItem(Item item );
         public bool DeleteItem(int id);
         public Item GetItemById(int id);
+        public List<Item> SearchByItemName(Item item);
     }
 }

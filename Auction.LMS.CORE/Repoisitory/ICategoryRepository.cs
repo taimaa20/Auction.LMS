@@ -11,5 +11,6 @@ namespace Auction.LMS.CORE.Repoisitory
         bool InsertCategory(Category category);
         bool UpdateCategory(Category category);
         bool DeleteCategory(int id);
+        List<Category> SearchByCategoryName(Category category);
     }
 }

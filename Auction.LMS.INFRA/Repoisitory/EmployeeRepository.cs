@@ -56,5 +56,14 @@ namespace Auction.LMS.INFRA.Repoisitory
             var result = DbContext.Connection.ExecuteAsync("DeleteEmployee", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public List<Employee> SearchEmployeeByName(Employee employee)
+        {
+            var p = new DynamicParameters();
+            p.Add("@Name", employee.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            IEnumerable<Employee> result = DbContext.Connection.Query<Employee>("GetAllEmployee", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
     }
 }
