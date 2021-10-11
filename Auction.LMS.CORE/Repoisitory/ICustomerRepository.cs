@@ -13,8 +13,12 @@ namespace Auction.LMS.CORE.Repoisitory
         public bool UpdateCustomer(Customer customer);
         public bool InsertCustomer(Customer customer);
 
-        public List<CustomerItemSallerDTO> CustomerItemSallerDTOs(int id);
-        public List<CustomerItemBuyerDTO> CustomerItemBuyerDTOs(int id);
+ 
+        public IEnumerable<CustomerItemSallerDTO> customerItemSallerDTOs(int id);
+
+        public IEnumerable<CustomerItemBuyerDTO> customerItemBuyerDTOs(int id);
+   
+        public IEnumerable<CustomerCountDTO> customerCount();
 
 
     }

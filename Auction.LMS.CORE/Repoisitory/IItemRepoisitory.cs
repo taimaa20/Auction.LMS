@@ -16,5 +16,6 @@ namespace Auction.LMS.CORE.Repoisitory
         public Item GetItemById(int id);
         public List<Item> SearchByItemName(Item item);
         public List<ItemDTO> OfferItemPrice(ItemDTO itemDTO);
+        public IEnumerable<EmployeeCountDTO> CountEmployee(int id);
     }
 }

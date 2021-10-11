@@ -61,21 +61,31 @@ namespace Auction.LMS.INFRA.Repoisitory
             return result.ToList();
         }
 
-        public List<CustomerItemSallerDTO> CustomerItemSallerDTOs(int id)
-        {
-          
-                var par = new DynamicParameters();
-                par.Add("@CustomerId", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
-                var result = DbContext.Connection.Query<CustomerItemSallerDTO>("CustomerItemSaller", par, commandType: CommandType.StoredProcedure);
-                return result.ToList();
-            
-        }
-        public List<CustomerItemBuyerDTO> CustomerItemBuyerDTOs(int id)
-        {
+      
+     
 
+        public IEnumerable<CustomerCountDTO> customerCount()
+        {
+            
+                IEnumerable<CustomerCountDTO> result = DbContext.Connection.Query<CustomerCountDTO>("NumberOfCustomer", commandType: CommandType.StoredProcedure);
+                return result.ToList();
+           
+        }
+    
+        public IEnumerable<CustomerItemSallerDTO> customerItemSallerDTOs(int id)
+        {
             var par = new DynamicParameters();
             par.Add("@CustomerId", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
-            var result = DbContext.Connection.Query<CustomerItemBuyerDTO>("CustomerItemSaller", par, commandType: CommandType.StoredProcedure);
+            IEnumerable<CustomerItemSallerDTO> result = DbContext.Connection.Query<CustomerItemSallerDTO>("CustomerItemSaller", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
+
+        public IEnumerable<CustomerItemBuyerDTO> customerItemBuyerDTOs(int id)
+        {
+            var par = new DynamicParameters();
+            par.Add("@CustomerId", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
+            IEnumerable<CustomerItemBuyerDTO> result = DbContext.Connection.Query<CustomerItemBuyerDTO>("CustomerItemBuyer", commandType: CommandType.StoredProcedure);
             return result.ToList();
 
         }
