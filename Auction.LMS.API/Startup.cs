@@ -1,7 +1,9 @@
 using Auction.LMS.CORE.Common;
 using Auction.LMS.CORE.Repoisitory;
+using Auction.LMS.CORE.Services;
 using Auction.LMS.INFRA;
 using Auction.LMS.INFRA.Repoisitory;
+using Auction.LMS.INFRA.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -48,7 +50,22 @@ namespace Auction.LMS.API
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-            services.AddControllers(); 
+            services.AddScoped<IHomeService, HomeService>();
+            services.AddScoped<IImageService, ImageService>();
+            services.AddScoped<IItemService, ItemService>();
+            services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IMessageService, MessageService>();
+            services.AddScoped<IPaymentService, PaymentService>();
+            services.AddScoped<ISalaryService, SalaryService>();
+            services.AddScoped<ITestmonialService, TestmonialService>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IDepartmentService, DepartmentService>();
+            services.AddScoped<ICreditCardService, CreditCardService>();
+            services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IAuctionService, AuctionService>();
+            services.AddScoped<IAttendanceService, AttendanceService>();
+            services.AddScoped<IAboutService, AboutService>();
+            services.AddControllers();
 
         }
 
