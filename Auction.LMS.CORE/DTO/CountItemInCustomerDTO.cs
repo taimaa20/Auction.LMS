@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Auction.LMS.CORE.DTO
 {
-    public class NumberOfCustomerDTO
+  public class CountItemInCustomerDTO
     {
-        public int Count { get; set; }
+       public int CountItemInCustomer { get; set; }
     }
 }

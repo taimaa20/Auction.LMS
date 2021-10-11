@@ -90,9 +90,10 @@ namespace Auction.LMS.INFRA.Repoisitory
         //    return result;
         //}
 
-      public List<EmployeeCountDTO>  CountEmployee()
-        {
+  
 
+        public IEnumerable<EmployeeCountDTO> CountEmployee()
+        {
             IEnumerable<EmployeeCountDTO> result = DbContext.Connection.Query<EmployeeCountDTO>("NumberOfEmployee", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }

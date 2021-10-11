@@ -100,5 +100,15 @@ namespace Auction.LMS.INFRA.Repoisitory
             IEnumerable<AuctionInSpecificIntervalDTO> result = DbContext.Connection.Query<AuctionInSpecificIntervalDTO>("AuctionInSpecificInterval", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public IEnumerable<MaxBidPriceDTO> customerCount()
+        {
+          
+
+                IEnumerable<MaxBidPriceDTO> result = DbContext.Connection.Query<MaxBidPriceDTO>("MaxBidPrice", commandType: CommandType.StoredProcedure);
+                return result.ToList();
+
+            
+        }
     }
 }
