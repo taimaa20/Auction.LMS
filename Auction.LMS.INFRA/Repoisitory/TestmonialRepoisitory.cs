@@ -49,6 +49,7 @@ namespace Auction.LMS.INFRA.Repoisitory
 
             var parameters = new DynamicParameters();
             parameters.Add("@Name", testmonial.Name, dbType: System.Data.DbType.String, direction: System.Data.ParameterDirection.Input);
+            parameters.Add("@Email", testmonial.Email, dbType: System.Data.DbType.String, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@Comments", testmonial.Comments, dbType: System.Data.DbType.String, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@ImageName", testmonial.ImageName, dbType: System.Data.DbType.String, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@Status", testmonial.Status, dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Input);

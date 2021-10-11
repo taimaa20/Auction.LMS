@@ -50,10 +50,11 @@ namespace Auction.LMS.INFRA.Repoisitory
         {
   
             var parameters = new DynamicParameters();
+            parameters.Add("@Name", item.Name, dbType: DbType.String, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@Description", item.Description, dbType: System.Data.DbType.String, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@PublishDate", item.PublishDate, dbType: System.Data.DbType.DateTime, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@CategoryId", item.CategoryId, dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Input);
-           
+            parameters.Add("@CustomerId", item.CustomerId, dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Input);
             var result = dBContext.Connection.ExecuteAsync("InsertItem", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -62,9 +63,11 @@ namespace Auction.LMS.INFRA.Repoisitory
         {
             var parameters = new DynamicParameters();
             parameters.Add("@Id", item.Id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
+            parameters.Add("@Name", item.Name, dbType: DbType.String, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@Description", item.Description, dbType: System.Data.DbType.String, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@PublishDate", item.PublishDate, dbType: System.Data.DbType.DateTime, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@CategoryId", item.CategoryId, dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Input);
+            parameters.Add("@CustomerId", item.CustomerId, dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Input);
 
             var result = dBContext.Connection.ExecuteAsync("UpdateItem", parameters, commandType: CommandType.StoredProcedure);
             return true;
