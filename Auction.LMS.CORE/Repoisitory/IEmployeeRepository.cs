@@ -11,5 +11,7 @@ namespace Auction.LMS.CORE.Repoisitory
         public bool InsertEmployee(Employee employee);
         public bool UpdateEmployee(Employee employee);
         public bool DeleteEmployee(int id);
+        public List<Employee> SearchEmployeeByName(Employee employee);
+      
     }
 }

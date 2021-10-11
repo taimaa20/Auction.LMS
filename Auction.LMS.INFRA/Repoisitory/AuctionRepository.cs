@@ -65,7 +65,30 @@ namespace Auction.LMS.INFRA.Repoisitory
             var result = DbContext.Connection.ExecuteAsync("DeleteAuction", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public bool UpdateBidPriceAuction(Auction1 auction)
+        {
+               var p = new DynamicParameters();
+            p.Add("@Id", auction.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@Bidprice", auction.Bidprice, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("@CustomerId", auction.CustomerId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = DbContext.Connection.ExecuteAsync("UpdateBidPriceAuction", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+        public bool UpdateAntiquesStatus(Auction1 auction)
+        {
+            var p = new DynamicParameters();
+            p.Add("@Id", auction.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@Status", auction.Status, dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = DbContext.Connection.ExecuteAsync("UpdateAntiquesStatus", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
 
-        
+        public List<Auction1> RemainingTime(Auction1 auction)
+        {
+            var p = new DynamicParameters();
+            p.Add("@Id", auction.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Auction1> result = DbContext.Connection.Query<Auction1>("RemainingTime", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

@@ -45,5 +45,12 @@ namespace Auction.LMS.INFRA.Repoisitory
             return true;
         }
 
+        public List<Category> SearchByCategoryName(Category category)
+        {
+            var p = new DynamicParameters();
+            p.Add("@Name", category.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Category> result = DbContext.Connection.Query<Category>("SearchByCategoryName", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }
