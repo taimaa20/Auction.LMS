@@ -1,5 +1,6 @@
 ﻿using Auction.LMS.CORE.Common;
 using Auction.LMS.CORE.Data;
+using Auction.LMS.CORE.DTO;
 using Auction.LMS.CORE.Repoisitory;
 using Dapper;
 using System;
@@ -30,6 +31,14 @@ namespace Auction.LMS.INFRA.Repoisitory
             return true;
         }
 
+        public EmployeeCustomerPaymentInformationDTO EmployeeCustomerPaymentInformationDTO(int id)
+        {
+            var par = new DynamicParameters();
+            par.Add("@Id", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
+            var result = dBContext.Connection.Query<EmployeeCustomerPaymentInformationDTO>("EmployeeCustomerPaymentInformation", par, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
+
         public List<Payment> GetAllPayments()
         {
             IEnumerable<Payment> result = dBContext.Connection.Query<Payment>("GetAllPayments", commandType: CommandType.StoredProcedure);
@@ -41,6 +50,14 @@ namespace Auction.LMS.INFRA.Repoisitory
             var par = new DynamicParameters();
             par.Add("@Id", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
             var result = dBContext.Connection.Query<Payment>("GetAllPaymentsById", par, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
+
+        public Payment GetPaymentByCustomerId(int id)
+        {
+            var par = new DynamicParameters();
+            par.Add("@CustomerId", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
+            var result = dBContext.Connection.Query<Payment>("GetPaymentByCustomerId", par, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
 

@@ -1,5 +1,6 @@
 ﻿using Auction.LMS.CORE.Common;
 using Auction.LMS.CORE.Data;
+using Auction.LMS.CORE.DTO;
 using Auction.LMS.CORE.Repoisitory;
 using Dapper;
 using System;
@@ -88,6 +89,15 @@ namespace Auction.LMS.INFRA.Repoisitory
             var p = new DynamicParameters();
             p.Add("@Id", auction.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Auction1> result = DbContext.Connection.Query<Auction1>("RemainingTime", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<AuctionInSpecificIntervalDTO> AuctionInSpecificInterval(AuctionInSpecificIntervalDTO auction)
+        {
+            var p = new DynamicParameters();
+            p.Add("@StartDate", auction.Fromdate, dbType: DbType.Date, direction: ParameterDirection.Input);
+            p.Add("@EndDate", auction.Todate, dbType: DbType.Date, direction: ParameterDirection.Input);
+            IEnumerable<AuctionInSpecificIntervalDTO> result = DbContext.Connection.Query<AuctionInSpecificIntervalDTO>("AuctionInSpecificInterval", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Auction.LMS.CORE.Common;
 using Auction.LMS.CORE.Data;
+using Auction.LMS.CORE.DTO;
 using Auction.LMS.CORE.Repoisitory;
 using Dapper;
 using System;
@@ -64,6 +65,36 @@ namespace Auction.LMS.INFRA.Repoisitory
             IEnumerable<Employee> result = DbContext.Connection.Query<Employee>("GetAllEmployee", commandType: CommandType.StoredProcedure);
             return result.ToList();
 
+        }
+
+
+        //public bool CountEmployee(EmployeeCountDTO employeeCountDTO)
+        //{
+        //    var result = DbContext.Connection.ExecuteAsync("CountEmployee", commandType: CommandType.StoredProcedure);
+        //    return result;
+        //}
+
+        public List<EmployeeSalaryInformationDTO> EmployeeSalaryInformation(EmployeeSalaryInformationDTO employeeSalaryInformationDTO)
+        {
+            var p = new DynamicParameters();
+            p.Add("@EmployeeId", employeeSalaryInformationDTO.EmployeeId, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            IEnumerable<EmployeeSalaryInformationDTO> result = DbContext.Connection.Query<EmployeeSalaryInformationDTO>("EmployeeSalaryInformation", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        //public IEnumerable<EmployeeCountDTO> CountEmployee()
+        //{
+
+        //    IEnumerable<EmployeeCountDTO> result = DbContext.Connection.Query<EmployeeCountDTO>("NumberOfEmployee", commandType: CommandType.StoredProcedure);
+        //    return result;
+        //}
+
+      public List<EmployeeCountDTO>  CountEmployee()
+        {
+
+            IEnumerable<EmployeeCountDTO> result = DbContext.Connection.Query<EmployeeCountDTO>("NumberOfEmployee", commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }

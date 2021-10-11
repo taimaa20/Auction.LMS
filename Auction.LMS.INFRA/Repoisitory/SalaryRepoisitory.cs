@@ -37,6 +37,14 @@ namespace Auction.LMS.INFRA.Repoisitory
             return result.ToList();
         }
 
+        public Salary GetSalaryByEmployeeId(int id)
+        {
+            var par = new DynamicParameters();
+            par.Add("@EmployeeId", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
+            var result = dBContext.Connection.Query<Salary>("GetSalaryByEmployeeId", par, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
+
         public Salary GetSalaryById(int id)
         {
             var par = new DynamicParameters();

@@ -1,5 +1,6 @@
 ﻿
 using Auction.LMS.CORE.Data;
+using Auction.LMS.CORE.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,5 +16,6 @@ namespace Auction.LMS.CORE.Repoisitory
         public bool UpdateBidPriceAuction(Auction1 auction);
         public bool UpdateAntiquesStatus(Auction1 auction);
         public List<Auction1> RemainingTime(Auction1 auction);
+        public List<AuctionInSpecificIntervalDTO> AuctionInSpecificInterval(AuctionInSpecificIntervalDTO auction);
     }
 }

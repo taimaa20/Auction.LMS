@@ -1,5 +1,6 @@
 ﻿using Auction.LMS.CORE.Common;
 using Auction.LMS.CORE.Data;
+using Auction.LMS.CORE.DTO;
 using Auction.LMS.CORE.Repoisitory;
 using Dapper;
 using System;
@@ -56,8 +57,27 @@ namespace Auction.LMS.INFRA.Repoisitory
 
         public List<Customer> GetAllCustomer()
         {
-            IEnumerable<Attendance> result = DbContext.Connection.Query<Attendance>("GetAllCustomer", commandType: CommandType.StoredProcedure);
+            IEnumerable<Customer> result = DbContext.Connection.Query<Customer>("GetAllCustomer", commandType: CommandType.StoredProcedure);
             return result.ToList();
+        }
+
+        public List<CustomerItemSallerDTO> CustomerItemSallerDTOs(int id)
+        {
+          
+                var par = new DynamicParameters();
+                par.Add("@CustomerId", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
+                var result = DbContext.Connection.Query<CustomerItemSallerDTO>("CustomerItemSaller", par, commandType: CommandType.StoredProcedure);
+                return result.ToList();
+            
+        }
+        public List<CustomerItemBuyerDTO> CustomerItemBuyerDTOs(int id)
+        {
+
+            var par = new DynamicParameters();
+            par.Add("@CustomerId", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
+            var result = DbContext.Connection.Query<CustomerItemBuyerDTO>("CustomerItemSaller", par, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
         }
     }
 }
