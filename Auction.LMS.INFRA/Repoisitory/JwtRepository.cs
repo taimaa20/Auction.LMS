@@ -21,8 +21,8 @@ namespace Auction.LMS.INFRA.Repoisitory
         public Login Auth(Login login)
         {
             var p = new DynamicParameters();
-            p.Add("@UserName", login.Username, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@password", login.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@UserName", login.UserName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@password", login.UserName, dbType: DbType.String, direction: ParameterDirection.Input);
             IEnumerable<Login> result = dBContext.Connection.Query<Login>("LoginProc", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
