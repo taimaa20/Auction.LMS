@@ -20,6 +20,7 @@ namespace Auction.LMS.INFRA.Services
             return auctionRepository.AuctionInSpecificInterval(auction);
         }
 
+
         public bool DeleteAuction(int id)
         {
             return auctionRepository.DeleteAuction(id);
@@ -33,6 +34,11 @@ namespace Auction.LMS.INFRA.Services
         public bool InsertAuction(Auction1 auction)
         {
             return auctionRepository.InsertAuction(auction);
+        }
+
+        public IEnumerable<MaxBidPriceDTO> MaxBid()
+        {
+            return auctionRepository.MaxBid();
         }
 
         public List<Auction1> RemainingTime(Auction1 auction)

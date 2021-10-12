@@ -15,6 +15,12 @@ namespace Auction.LMS.INFRA.Services
         {
             this.itemRepoisitory = itemRepoisitory;
         }
+
+        public IEnumerable<EmployeeCountDTO> CountEmployee()
+        {
+            return itemRepoisitory.CountEmployee();
+        }
+
         public bool DeleteItem(int id)
         {
             return itemRepoisitory.DeleteItem(id);

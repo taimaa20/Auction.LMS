@@ -1,4 +1,5 @@
 ﻿using Auction.LMS.CORE.Data;
+using Auction.LMS.CORE.DTO;
 using Auction.LMS.CORE.Repoisitory;
 using Auction.LMS.CORE.Services;
 using System;
@@ -14,6 +15,22 @@ namespace Auction.LMS.INFRA.Services
         {
             this.customerRepository = customerRepository;
         }
+
+        public IEnumerable<CustomerCountDTO> customerCount()
+        {
+            return customerRepository.customerCount();
+        }
+
+        public IEnumerable<CustomerItemBuyerDTO> customerItemBuyerDTOs(int id)
+        {
+            return customerRepository.customerItemBuyerDTOs(id);
+        }
+
+        public IEnumerable<CustomerItemSallerDTO> customerItemSallerDTOs(int id)
+        {
+            return customerRepository.customerItemSallerDTOs(id);
+        }
+
         public bool DeleteCustomer(int id)
         {
             return customerRepository.DeleteCustomer(id);

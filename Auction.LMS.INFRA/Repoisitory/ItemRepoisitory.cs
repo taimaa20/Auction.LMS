@@ -94,10 +94,9 @@ namespace Auction.LMS.INFRA.Repoisitory
             return result.ToList();
         }
 
-        public IEnumerable<EmployeeCountDTO> CountEmployee(int id)
+        public IEnumerable<EmployeeCountDTO> CountEmployee()
         {
-            var p = new DynamicParameters();
-            p.Add("@CustomerId", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+        
             IEnumerable<EmployeeCountDTO> result = dBContext.Connection.Query<EmployeeCountDTO>("NumberOfEmployee", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
