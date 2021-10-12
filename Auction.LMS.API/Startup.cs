@@ -65,7 +65,8 @@ namespace Auction.LMS.API
             services.AddScoped<IAuctionService, AuctionService>();
             services.AddScoped<IAttendanceService, AttendanceService>();
             services.AddScoped<IAboutService, AboutService>();
-            services.AddControllers();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddControllers(); 
 
         }
 
