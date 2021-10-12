@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Claims;
 using System.Text;
 
 namespace Auction.LMS.CORE.Data
@@ -11,7 +12,8 @@ namespace Auction.LMS.CORE.Data
         [Key]
      
         public int Id { get; set; }
-        public string Username { get; set; }
+        public string UserName { get; set; }
+      
         public string Password { get; set; }
         public int DeptId { get; set; }
         public int? CustomerId { get; set; }

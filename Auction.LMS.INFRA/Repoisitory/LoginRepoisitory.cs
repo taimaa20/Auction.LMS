@@ -55,7 +55,7 @@ namespace Auction.LMS.INFRA.Repoisitory
         {
 
             var parameters = new DynamicParameters();
-            parameters.Add("@Username", login.Username, dbType: System.Data.DbType.String, direction: System.Data.ParameterDirection.Input);
+            parameters.Add("@Username", login.UserName, dbType: System.Data.DbType.String, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@Password", login.Password, dbType: System.Data.DbType.String, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@DeptId", login.DeptId, dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@CustomerId", login.CustomerId, dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Input);
@@ -70,7 +70,7 @@ namespace Auction.LMS.INFRA.Repoisitory
         {
             var parameters = new DynamicParameters();
             parameters.Add("@Id", login.Id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
-            parameters.Add("@Username", login.Username, dbType: System.Data.DbType.String, direction: System.Data.ParameterDirection.Input);
+            parameters.Add("@Username", login.UserName, dbType: System.Data.DbType.String, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@Password", login.Password, dbType: System.Data.DbType.String, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@DeptId", login.DeptId, dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Input);
             parameters.Add("@CustomerId", login.CustomerId, dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Input);
