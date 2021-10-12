@@ -15,6 +15,6 @@ namespace Auction.LMS.CORE.Repoisitory
         public List<Employee> SearchEmployeeByName(Employee employee);
         public IEnumerable<EmployeeCountDTO> CountEmployee();
         public List<EmployeeSalaryInformationDTO> EmployeeSalaryInformation(EmployeeSalaryInformationDTO employeeSalaryInformationDTO);
-      
+        public Employee GetAllEmployeeId(int id);
     }
 }

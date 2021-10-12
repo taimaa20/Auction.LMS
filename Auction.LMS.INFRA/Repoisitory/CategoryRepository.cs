@@ -52,5 +52,13 @@ namespace Auction.LMS.INFRA.Repoisitory
             IEnumerable<Category> result = DbContext.Connection.Query<Category>("SearchByCategoryName", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+        public Category GetAllCategoryId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("@Id", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
+            var result = DbContext.Connection.Query<Category>("GetByIdCategory", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
+
     }
 }

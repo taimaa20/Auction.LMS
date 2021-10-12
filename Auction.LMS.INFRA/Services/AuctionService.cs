@@ -60,5 +60,9 @@ namespace Auction.LMS.INFRA.Services
         {
             return auctionRepository.UpdateBidPriceAuction(auction);
         }
+        public Auction1 GetAllAuctionId(int id)
+        {
+            return auctionRepository.GetAllAuctionId(id);
+        }
     }
 }

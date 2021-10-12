@@ -17,5 +17,6 @@ namespace Auction.LMS.CORE.Services
         public IEnumerable<CustomerItemBuyerDTO> customerItemBuyerDTOs(int id);
 
         public IEnumerable<CustomerCountDTO> customerCount();
+        public Customer GetAllCustomerId(int id);
     }
 }

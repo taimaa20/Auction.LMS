@@ -11,5 +11,6 @@ namespace Auction.LMS.CORE.Services
         bool InsertCreditCard(CreditCard creditCard);
         bool UpdateCreditCard(CreditCard creditCard);
         bool DeleteCreditCard(int id);
+        public CreditCard GetAllCreditCardId(int id);
     }
 }

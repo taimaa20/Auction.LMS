@@ -50,5 +50,9 @@ namespace Auction.LMS.INFRA.Services
         {
             return customerRepository.UpdateCustomer(customer);
         }
+        public Customer GetAllCustomerId(int id)
+        {
+            return customerRepository.GetAllCustomerId(id);
+        }
     }
 }

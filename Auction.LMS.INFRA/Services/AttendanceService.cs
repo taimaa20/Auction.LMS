@@ -33,5 +33,9 @@ namespace Auction.LMS.INFRA.Services
         {
             return attendanceRepository.UpdateAttendance(attendance);
         }
+        public Attendance GetAllAttendanceId(int id)
+        {
+            return attendanceRepository.GetAllAttendanceId(id);
+        }
     }
 }

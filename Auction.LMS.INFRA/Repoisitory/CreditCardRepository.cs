@@ -57,6 +57,13 @@ namespace Auction.LMS.INFRA.Repoisitory
             var result = DbContext.Connection.ExecuteAsync("DeleteCreditCard", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public CreditCard GetAllCreditCardId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("@Id", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
+            var result = DbContext.Connection.Query<CreditCard>("GetByIdCreditCard", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
 
     }
 }

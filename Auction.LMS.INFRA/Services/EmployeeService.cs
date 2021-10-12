@@ -50,5 +50,9 @@ namespace Auction.LMS.INFRA.Services
         {
             return employeeRepository.UpdateEmployee(employee);
         }
+        public Employee GetAllEmployeeId(int id)
+        {
+            return employeeRepository.GetAllEmployeeId(id);
+        }
     }
 }

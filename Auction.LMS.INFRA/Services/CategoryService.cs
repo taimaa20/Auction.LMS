@@ -39,5 +39,9 @@ namespace Auction.LMS.INFRA.Services
         {
             return categoryRepository.UpdateCategory(category);
         }
+        public Category GetAllCategoryId(int id)
+        {
+            return categoryRepository.GetAllCategoryId(id);
+        }
     }
 }

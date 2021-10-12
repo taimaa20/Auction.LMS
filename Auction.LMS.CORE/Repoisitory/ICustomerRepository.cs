@@ -19,7 +19,7 @@ namespace Auction.LMS.CORE.Repoisitory
         public IEnumerable<CustomerItemBuyerDTO> customerItemBuyerDTOs(int id);
    
         public IEnumerable<CustomerCountDTO> customerCount();
-
+        public Customer GetAllCustomerId(int id);
 
     }
 }

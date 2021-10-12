@@ -97,5 +97,12 @@ namespace Auction.LMS.INFRA.Repoisitory
             IEnumerable<EmployeeCountDTO> result = DbContext.Connection.Query<EmployeeCountDTO>("NumberOfEmployee", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+        public Employee GetAllEmployeeId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("@Id", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
+            var result = DbContext.Connection.Query<Employee>("GetEmployeeById", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
     }
 }

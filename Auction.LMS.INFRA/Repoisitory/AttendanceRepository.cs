@@ -54,5 +54,12 @@ namespace Auction.LMS.INFRA.Repoisitory
             IEnumerable<Attendance> result = DbContext.Connection.Query<Attendance>("GetAllAttendence", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+        public Attendance GetAllAttendanceId(int Attendanceid)
+        {
+            var p = new DynamicParameters();
+            p.Add("@AttendanceId", Attendanceid, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
+            var result = DbContext.Connection.Query<Attendance>("GetByIdAttendance", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
     }
 }

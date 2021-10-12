@@ -34,5 +34,9 @@ namespace Auction.LMS.INFRA.Services
         {
             return contactRepository.UpdateContact(contact);
         }
+        public Contact GetAllContactId(int id)
+        {
+            return contactRepository.GetAllContactId(id);
+        }
     }
 }

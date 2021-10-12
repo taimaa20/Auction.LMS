@@ -12,5 +12,6 @@ namespace Auction.LMS.CORE.Services
         public bool InsertDepartment(Department department);
         public bool UpdateDepartment(Department department);
         public bool DeleteDepartment(int id);
+        public Department GetAllDepartmentId(int id);
     }
 }
