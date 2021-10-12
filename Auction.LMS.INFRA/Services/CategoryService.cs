@@ -32,7 +32,7 @@ namespace Auction.LMS.INFRA.Services
 
         public List<Category> SearchByCategoryName(Category category)
         {
-        return categoryRepository.SearchByCategoryName(category)
+            return categoryRepository.SearchByCategoryName(category);
         }
 
         public bool UpdateCategory(Category category)
