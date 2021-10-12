@@ -55,6 +55,13 @@ namespace Auction.LMS.INFRA.Repoisitory
             var result = DbContext.Connection.ExecuteAsync("DeleteContact", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public Contact GetAllContactId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("@Id", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
+            var result = DbContext.Connection.Query<Contact>("GetByIdContact", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
 
     }
 }

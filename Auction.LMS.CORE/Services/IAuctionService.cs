@@ -17,5 +17,6 @@ namespace Auction.LMS.CORE.Services
         public List<Auction1> RemainingTime(Auction1 auction);
         public List<AuctionInSpecificIntervalDTO> AuctionInSpecificInterval(AuctionInSpecificIntervalDTO auction);
         public IEnumerable<MaxBidPriceDTO> MaxBid();
+        public Auction1 GetAllAuctionId(int id);
     }
 }

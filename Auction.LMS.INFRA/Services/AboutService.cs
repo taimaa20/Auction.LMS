@@ -33,5 +33,9 @@ namespace Auction.LMS.INFRA.Services
         {
             return aboutRepository.UpdateAbout(about);
         }
+        public About GetAllAboutId(int id)
+        {
+            return aboutRepository.GetAllAboutId(id);
+        }
     }
 }

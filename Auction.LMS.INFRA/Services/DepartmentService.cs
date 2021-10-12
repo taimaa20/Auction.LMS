@@ -33,5 +33,9 @@ namespace Auction.LMS.INFRA.Services
         {
             return departmentRepository.UpdateDepartment(department);
         }
+        public Department GetAllDepartmentId(int id)
+        {
+            return departmentRepository.GetAllDepartmentId(id);
+        }
     }
 }

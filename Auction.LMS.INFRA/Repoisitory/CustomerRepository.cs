@@ -89,5 +89,12 @@ namespace Auction.LMS.INFRA.Repoisitory
             return result.ToList();
 
         }
+        public Customer GetAllCustomerId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("@Id", id, dbType: DbType.Int32, direction: System.Data.ParameterDirection.Input);
+            var result = DbContext.Connection.Query<Customer>("GetCustomerById", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace Auction.LMS.CORE.Repoisitory
         bool InsertContact(Contact contact);
         bool UpdateContact(Contact contact);
         bool DeleteContact(int id);
+        public Contact GetAllContactId(int id);
     }
 }

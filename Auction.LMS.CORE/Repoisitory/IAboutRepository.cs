@@ -11,5 +11,6 @@ namespace Auction.LMS.CORE.Repoisitory
         bool InsertAbout(About about);
         bool UpdateAbout(About about);
         bool DeleteAbout(int id);
+        public About GetAllAboutId(int id);
     }
 }

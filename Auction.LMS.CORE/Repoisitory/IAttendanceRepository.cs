@@ -11,5 +11,6 @@ namespace Auction.LMS.CORE.Repoisitory
         bool InsertAttendance(Attendance attendance);
         bool UpdateAttendance(Attendance attendance);
         bool DeleteAttendance(int Attendanceid);
+        public Attendance GetAllAttendanceId(int id);
     }
 }

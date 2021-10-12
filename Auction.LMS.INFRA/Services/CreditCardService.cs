@@ -33,5 +33,9 @@ namespace Auction.LMS.INFRA.Services
         {
             return creditCardRepository.UpdateCreditCard(creditCard);
         }
+        public CreditCard GetAllCreditCardId(int id)
+        {
+            return creditCardRepository.GetAllCreditCardId(id);
+        }
     }
 }
