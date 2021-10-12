@@ -16,5 +16,6 @@ namespace Auction.LMS.CORE.Services
         public bool UpdateAntiquesStatus(Auction1 auction);
         public List<Auction1> RemainingTime(Auction1 auction);
         public List<AuctionInSpecificIntervalDTO> AuctionInSpecificInterval(AuctionInSpecificIntervalDTO auction);
+        public IEnumerable<MaxBidPriceDTO> MaxBid();
     }
 }

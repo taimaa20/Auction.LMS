@@ -101,7 +101,7 @@ namespace Auction.LMS.INFRA.Repoisitory
             return result.ToList();
         }
 
-        public IEnumerable<MaxBidPriceDTO> customerCount()
+        public IEnumerable<MaxBidPriceDTO> MaxBid()
         {
           
 

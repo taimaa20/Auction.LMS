@@ -1,4 +1,5 @@
 ﻿using Auction.LMS.CORE.Data;
+using Auction.LMS.CORE.DTO;
 using Auction.LMS.CORE.Repoisitory;
 using Auction.LMS.CORE.Services;
 using System;
@@ -15,9 +16,19 @@ namespace Auction.LMS.INFRA.Services
             this.employeeRepository = employeeRepository;
         }
 
+        public IEnumerable<EmployeeCountDTO> CountEmployee()
+        {
+            return employeeRepository.CountEmployee();
+        }
+
         public bool DeleteEmployee(int id)
         {
             return employeeRepository.DeleteEmployee(id);
+        }
+
+        public List<EmployeeSalaryInformationDTO> EmployeeSalaryInformation(EmployeeSalaryInformationDTO employeeSalaryInformationDTO)
+        {
+            return employeeRepository.EmployeeSalaryInformation(employeeSalaryInformationDTO);
         }
 
         public List<Employee> GetAllEmployee()
@@ -28,6 +39,11 @@ namespace Auction.LMS.INFRA.Services
         public bool InsertEmployee(Employee employee)
         {
             return employeeRepository.InsertEmployee(employee);
+        }
+
+        public List<Employee> SearchEmployeeByName(Employee employee)
+        {
+            return employeeRepository.SearchEmployeeByName(employee);
         }
 
         public bool UpdateEmployee(Employee employee)
