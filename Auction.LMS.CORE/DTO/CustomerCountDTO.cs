@@ -6,6 +6,6 @@ namespace Auction.LMS.CORE.DTO
 {
   public   class CustomerCountDTO
     {
-        public int NumberOfCustomer { get; set; }
+        public int Number { get; set; }
     }
 }
